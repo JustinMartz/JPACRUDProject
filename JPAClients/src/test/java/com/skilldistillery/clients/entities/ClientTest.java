@@ -43,7 +43,16 @@ class ClientTest {
 	@Test
 	void test_Client_entity_mappings() {
 		assertNotNull(client);
-		assertEquals("Justin", client.getFirstName());
+		assertEquals("Emma", client.getFirstName());
+		assertEquals("Thompson", client.getLastName());
+		assertEquals(1, client.getActive());
+		assertEquals(1978, client.getDateOfBirth().getYear());
+		assertEquals("13035092280", client.getPhoneNumber());
+		assertEquals("Anxiety", client.getPresentingIssue());
+		assertEquals("Generalized Anxiety", client.getDiagnosis());
+		assertEquals(2022, client.getIntakeDate().getYear());
+		assertEquals(9, client.getLastSession().getHour());
+		assertEquals("Google", client.getReferralSource());
 	}
 
 }

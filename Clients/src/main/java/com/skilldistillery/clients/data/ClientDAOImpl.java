@@ -1,5 +1,7 @@
 package com.skilldistillery.clients.data;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -35,6 +37,12 @@ public class ClientDAOImpl implements ClientDAO {
 	public boolean destroyById(int id) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public List<Client> findAll() {
+		String query = "SELECT c FROM Client c";
+		return em.createQuery(query, Client.class).getResultList();
 	}
 
 }
