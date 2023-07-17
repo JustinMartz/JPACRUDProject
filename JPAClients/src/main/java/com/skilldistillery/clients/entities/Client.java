@@ -85,8 +85,8 @@ public class Client {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(LocalDate dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
+	public void setDateOfBirth(String dateOfBirth) {
+		this.dateOfBirth = LocalDate.parse(dateOfBirth);
 	}
 
 	public String getPhoneNumber() {
@@ -117,16 +117,16 @@ public class Client {
 		return intakeDate;
 	}
 
-	public void setIntakeDate(LocalDate intakeDate) {
-		this.intakeDate = intakeDate;
+	public void setIntakeDate(String intakeDate) {
+		this.intakeDate = LocalDate.parse(intakeDate);
 	}
 
 	public LocalDateTime getLastSession() {
 		return lastSession;
 	}
 
-	public void setLastSession(LocalDateTime lastSession) {
-		this.lastSession = lastSession;
+	public void setLastSession(String lastSession) {
+		this.lastSession = LocalDateTime.parse(lastSession);
 	}
 
 	public String getReferralSource() {

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.clients.data.ClientDAO;
+import com.skilldistillery.clients.entities.Client;
 
 @Controller
 public class ClientController {
@@ -29,5 +30,11 @@ public class ClientController {
 	public String update(int clientId, Model model) {
 		model.addAttribute("client", clientDAO.findById(clientId));
 		return "WEB-INF/update.jsp";
+	}
+	
+	@RequestMapping(path="saveInfo.do", method=RequestMethod.POST)
+	public String save(Client client, Model model) {
+		model.addAttribute("message", "This is a test message");
+		return "WEB-INF/message.jsp";
 	}
 }

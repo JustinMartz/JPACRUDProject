@@ -87,11 +87,8 @@
 							<h2>Referral source: </h2><input value="${client.referralSource}" type="text" name="referralSource" maxlength="45"></div>
 					</div>
 				</div>
-			</form>
 		</div>
 		<div class="entries-footer">
-			<form action="updateClient.do" method="POST">
-				<input type="hidden" name="clientId" value="${client.id}">
 				<button>Save</button>
 
 			</form>
