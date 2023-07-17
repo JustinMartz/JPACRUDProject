@@ -34,7 +34,14 @@ public class ClientController {
 	
 	@RequestMapping(path="saveInfo.do", method=RequestMethod.POST)
 	public String save(Client client, Model model) {
-		model.addAttribute("message", "This is a test message");
+		model.addAttribute("client", clientDAO.update(client.getId(), client));
+		return "WEB-INF/message.jsp";
+	}
+	
+	@RequestMapping(path="deleteClient.do", method=RequestMethod.POST)
+	public String delete(int clientId, Model model) {
+		clientDAO.destroyById(clientId);
+		model.addAttribute("message", "Client entry deleted.");
 		return "WEB-INF/message.jsp";
 	}
 }

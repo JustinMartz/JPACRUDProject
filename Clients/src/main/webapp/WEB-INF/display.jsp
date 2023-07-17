@@ -59,7 +59,10 @@
 				<button>Update ${client.firstName } ${client.lastName }</button>
 
 			</form>
-		<button>Delete ${client.firstName } ${client.lastName }</button>
+			<form action="deleteClient.do" method="POST">
+			<input type="hidden" name="clientId" value="${client.id}">
+			<button>Delete ${client.firstName } ${client.lastName }</button>
+			</form>
 		</div>
 	</div>
 </body>

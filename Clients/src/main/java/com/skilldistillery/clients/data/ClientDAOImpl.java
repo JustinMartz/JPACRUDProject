@@ -2,6 +2,7 @@ package com.skilldistillery.clients.data;
 
 import java.util.List;
 
+import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -23,19 +24,26 @@ public class ClientDAOImpl implements ClientDAO {
 
 	@Override
 	public Client create(Client client) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			em.persist(client);
+			
+		} catch (EntityExistsException e) {
+			System.err.print(e);
+			return null;
+		}
+		return client;
 	}
 
 	@Override
 	public Client update(int id, Client client) {
-		// TODO Auto-generated method stub
-		return null;
+		em.merge(client);
+		return client;
 	}
 
 	@Override
 	public boolean destroyById(int id) {
-		// TODO Auto-generated method stub
+		
+		em.remove(findById(id));
 		return false;
 	}
 
