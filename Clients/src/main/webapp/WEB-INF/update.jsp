@@ -69,7 +69,10 @@
 				<input type="hidden" name="id" value="${client.id}">
 					<button>Save</button>
 				</form>
-				<a href="displayClient.do?id=${client.id}"><button>Go back</button></a>
+				<form action="displayClient.do">
+				<input type="hidden" name="id" value="${client.id }" />
+				<button>Go back</button>
+				</form>
 				</div>
 			</div>		
 		</div>					
