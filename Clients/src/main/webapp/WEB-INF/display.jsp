@@ -54,8 +54,12 @@
 			</div>
 		</div>
 		<div class="entries-footer">
-		<button>Update ${client.firstName } ${client.lastName }</button>
-		<button>Destroy ${client.firstName } ${client.lastName }</button>
+		<form action="updateClient.do" method="POST">
+						<input type="hidden" name="clientId" value="${client.id}">
+				<button>Update ${client.firstName } ${client.lastName }</button>
+
+			</form>
+		<button>Delete ${client.firstName } ${client.lastName }</button>
 		</div>
 	</div>
 </body>

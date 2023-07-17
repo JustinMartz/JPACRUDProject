@@ -24,4 +24,10 @@ public class ClientController {
 		model.addAttribute("client", clientDAO.findById(id));
 		return "WEB-INF/display.jsp";
 	}
+	
+	@RequestMapping(path="updateClient.do", method=RequestMethod.POST)
+	public String update(int clientId, Model model) {
+		model.addAttribute("client", clientDAO.findById(clientId));
+		return "WEB-INF/update.jsp";
+	}
 }
