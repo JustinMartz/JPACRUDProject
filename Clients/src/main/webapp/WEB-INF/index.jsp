@@ -20,7 +20,7 @@
 					class="dropbtn">Find</a>
 					<div class="dropdown-content">
 						<a href="#">Find Client By ID</a> <a href="#">Find Client By
-							Name</a> <a href="#">Find All Clients</a>
+							Name</a> <a href="index.do">Find All Clients</a>
 					</div></li>
 				<li><a href="#news">Update</a></li>
 				<li><a href="#destroy">Destroy</a></li>

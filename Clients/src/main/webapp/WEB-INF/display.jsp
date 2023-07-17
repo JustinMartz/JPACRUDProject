@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
+    <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
     
 <!DOCTYPE html>
 <html>
@@ -26,7 +27,7 @@
 					class="dropbtn">Find</a>
 					<div class="dropdown-content">
 						<a href="#">Find Client By ID</a> <a href="#">Find Client By
-							Name</a> <a href="#">Find All Clients</a>
+							Name</a> <a href="index.do">Find All Clients</a>
 					</div></li>
 				<li><a href="#news">Update</a></li>
 				<li><a href="#destroy">Destroy</a></li>
@@ -34,11 +35,22 @@
 		</div>
 		<div class="entries-container">
 			<div class="entries-header"><h1>${client.firstName} ${client.lastName }</h1>
-			<span>${fn:substring(client.phoneNumber, 0, 1)} (${fn:substring(client.phoneNumber, 1, 4)}) ${fn:substring(client.phoneNumber, 4, 7)}-${fn:substring(client.phoneNumber, 7, 11)} </span><span>Active: ${client.active}</span></div>
+			<span>${fn:substring(client.phoneNumber, 0, 1)} (${fn:substring(client.phoneNumber, 1, 4)}) ${fn:substring(client.phoneNumber, 4, 7)}-${fn:substring(client.phoneNumber, 7, 11)} </span>
+			<span>Status: <c:if test="${client.active == 'true'}"><span class="status-active">ACTIVE</span></c:if>
+			<c:if test="${client.active == 'false'}"><span class="status-inactive">INACTIVE</span></c:if></span></div>
 			<hr>
 			<div class="entries-data">
-			<h2>Client ID: </h2>${client.id }
-			<h2>Date of birth: </h2>${client.dateOfBirth }
+				<div class="left-column">
+					<div><h2>Client ID: </h2>${client.id }</div>
+					<div><h2>Date of birth: </h2>${client.dateOfBirth}</div>
+					<div><h2>Intake date: </h2>${client.intakeDate }</div>
+					<div><h2>Last session: </h2>${client.lastSession }</div>
+				</div>
+				<div class="right-column">
+					<div><h2>Presenting issue: </h2>${client.presentingIssue }</div>
+					<div><h2>Diagnosis: </h2>${client.diagnosis }</div>
+					<div><h2>Referral source: </h2>${client.referralSource }</div>
+				</div>
 			</div>
 		</div>
 		<div class="entries-footer">
