@@ -15,15 +15,8 @@
 		</div>
 		<div class="nav-bar">
 			<ul>
-				<li><a href="#home">Create New Entry</a></li>
-				<li class="dropdown"><a href="javascript:void(0)"
-					class="dropbtn">Find</a>
-					<div class="dropdown-content">
-						<a href="#">Find Client By ID</a> <a href="#">Find Client By
-							Name</a> <a href="index.do">Find All Clients</a>
-					</div></li>
-				<li><a href="#news">Update</a></li>
-				<li><a href="#destroy">Destroy</a></li>
+				<li><a href="createClientPage.do">Create New Entry</a></li>
+				<li><a href="index.do">List All Clients</a></li>
 			</ul>
 		</div>
 		<div class="entries-container">
@@ -40,7 +33,7 @@
 				<tr>
 					<td>${client.id }</td>
 					<td><a href="displayClient.do?id=${client.id}">${client.firstName } ${client.lastName }</a></td>
-					<td>${client.active }</td>
+					<td><c:if test="${client.active == 'true'}"><span class="status-active">ACTIVE</span></c:if><c:if test="${client.active == 'false'}"><span class="status-inactive">INACTIVE</span></c:if></td>
 				</tr>
 					
 				</c:forEach>

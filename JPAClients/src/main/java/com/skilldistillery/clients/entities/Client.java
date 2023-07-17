@@ -46,7 +46,7 @@ public class Client {
 	private String referralSource;
 
 	public Client() {
-
+		active = true;
 	}
 
 	public int getId() {
@@ -126,6 +126,9 @@ public class Client {
 	}
 
 	public void setLastSession(String lastSession) {
+		if (lastSession == null) {
+			lastSession = "";
+		}
 		this.lastSession = LocalDateTime.parse(lastSession);
 	}
 

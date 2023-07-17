@@ -41,8 +41,22 @@ public class ClientController {
 	
 	@RequestMapping(path="deleteClient.do", method=RequestMethod.POST)
 	public String delete(int clientId, Model model) {
+		String clientName = "" + clientDAO.findById(clientId).getFirstName() + " " + clientDAO.findById(clientId).getLastName();
 		clientDAO.destroyById(clientId);
-		model.addAttribute("message", "Client entry deleted.");
+		model.addAttribute("message", "Client entry " + clientName + " deleted.");
 		return "WEB-INF/message.jsp";
 	}
+	
+	@RequestMapping(path="createClientPage.do", method=RequestMethod.GET)
+	public String createPage(Model model) {
+		return "WEB-INF/create.jsp";
+	}
+	
+	@RequestMapping(path="createClient.do", method=RequestMethod.POST)
+	public String create(Client client, Model model) {
+		clientDAO.create(client);
+		model.addAttribute("client", client);
+		return "WEB-INF/display.jsp";
+	}
+	
 }
