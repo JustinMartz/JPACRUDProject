@@ -34,15 +34,18 @@
 		<div class="entries-container">
 			<form action="saveInfo.do" method="POST">
 				<div class="entries-header">
-					<h1>${client.firstName}${client.lastName }</h1>
+					<h1>${client.firstName} ${client.lastName }</h1>
 					<span>${fn:substring(client.phoneNumber, 0, 1)}
 						(${fn:substring(client.phoneNumber, 1, 4)})
 						${fn:substring(client.phoneNumber, 4, 7)}-${fn:substring(client.phoneNumber, 7, 11)}
-					</span> <span>Status: <c:if test="${client.active == 'true'}">
-							<span class="status-active">ACTIVE</span>
-						</c:if> <c:if test="${client.active == 'false'}">
-							<span class="status-inactive">INACTIVE</span>
-						</c:if></span>
+					</span> <span>Status: </span>
+					<fieldset>
+					      <input type="radio" id="contactChoice1" name="${client.active }" value="true" <c:if test="${client.active == 'true'}">checked</c:if>/>
+					      <label for="choice1">Active</label>
+					      <input type="radio" id="contactChoice2" name="${client.active }" value="false" <c:if test="${client.active == 'false'}">checked</c:if>/>
+					      <label for="choice2">Inactive</label>
+					</fieldset>
+							
 				</div>
 				<hr>
 				<div class="entries-data">
@@ -79,9 +82,9 @@
 							</select>
 						</div>
 						<div>
-							<h2>Diagnosis:</h2>${client.diagnosis }</div>
+							<h2>Diagnosis: </h2><input value="${client.diagnosis }" type="text" name="diagnosis" maxlength="100"></div>
 						<div>
-							<h2>Referral source:</h2>${client.referralSource }</div>
+							<h2>Referral source: </h2><input value="${client.referralSource}" type="text" name="referralSource" maxlength="45"></div>
 					</div>
 				</div>
 			</form>
@@ -89,7 +92,7 @@
 		<div class="entries-footer">
 			<form action="updateClient.do" method="POST">
 				<input type="hidden" name="clientId" value="${client.id}">
-				<button>Update ${client.firstName } ${client.lastName }</button>
+				<button>Save</button>
 
 			</form>
 			<a href="displayClient.do?id=${client.id}"><button>Go
