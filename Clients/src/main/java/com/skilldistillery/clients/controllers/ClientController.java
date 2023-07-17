@@ -34,6 +34,7 @@ public class ClientController {
 	
 	@RequestMapping(path="saveInfo.do", method=RequestMethod.POST)
 	public String save(Client client, Model model) {
+		model.addAttribute("message", client.getFirstName() + " " + client.getLastName() + " updated");
 		model.addAttribute("client", clientDAO.update(client.getId(), client));
 		return "WEB-INF/message.jsp";
 	}

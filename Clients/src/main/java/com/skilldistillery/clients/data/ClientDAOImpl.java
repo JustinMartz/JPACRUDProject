@@ -36,8 +36,11 @@ public class ClientDAOImpl implements ClientDAO {
 
 	@Override
 	public Client update(int id, Client client) {
-		em.merge(client);
-		return client;
+		Client updatedClient = new Client();
+		System.out.println("************* " + id);
+		updatedClient.setId(id);
+		updatedClient = em.merge(client);
+		return updatedClient;
 	}
 
 	@Override

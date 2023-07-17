@@ -56,6 +56,7 @@
   </fieldset></div>
 				</div>
 				</div>
+				<input type="hidden" name="id" value="${client.id}">
 					<button>Save</button>
 				</form>
 				<a href="displayClient.do?id=${client.id}"><button>Go back</button></a>
